@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with shallow rendering compares snapshot 1`] = `
+<PanelAntd
+  extra={
+    <div>
+      some-extra-content
+    </div>
+  }
+  header={
+    <div>
+      'some-header'
+    </div>
+  }
+  key="panel-some-identifier"
+>
+  <List
+    dataSource={
+      Array [
+        Object {
+          "id": "some-item-identifier",
+        },
+      ]
+    }
+    key="panel-list-some-identifier"
+  />
+</PanelAntd>
+`;

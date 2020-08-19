@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with shallow rendering compares snapshot 1`] = `
+<ListAntd
+  dataSource={
+    Array [
+      Object {
+        "actions": Array [
+          <div>
+            some-action-to-perform
+          </div>,
+        ],
+        "extra": <div>
+          some-extra-content
+        </div>,
+        "id": "some-identifier",
+        "text": "some-text",
+      },
+    ]
+  }
+  renderItem={[Function]}
+  size="small"
+  split={false}
+/>
+`;

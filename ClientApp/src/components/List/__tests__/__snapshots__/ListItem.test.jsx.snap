@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with full rendering compares snapshot 1`] = `
+<ListItem
+  actions={
+    Array [
+      <div>
+        some-action-to-perform
+      </div>,
+    ]
+  }
+  extra={
+    <div>
+      some-extra-content
+    </div>
+  }
+  id="some-identifier"
+  text="some-text"
+>
+  <ItemAntd
+    actions={
+      Array [
+        <div>
+          some-action-to-perform
+        </div>,
+      ]
+    }
+    extra={
+      <div>
+        some-extra-content
+      </div>
+    }
+    key="list-item-some-identifier"
+  >
+    <li
+      className="ant-list-item"
+    >
+      <Text>
+        <Base
+          component="span"
+          ellipsis={false}
+        >
+          <LocaleReceiver
+            componentName="Text"
+          >
+            <ResizeObserver
+              disabled={true}
+              onResize={[Function]}
+            >
+              <Typography
+                className=""
+                component="span"
+                style={
+                  Object {
+                    "WebkitLineClamp": null,
+                  }
+                }
+              >
+                <span
+                  className="ant-typography"
+                  style={
+                    Object {
+                      "WebkitLineClamp": null,
+                    }
+                  }
+                >
+                  some-text
+                </span>
+              </Typography>
+            </ResizeObserver>
+          </LocaleReceiver>
+        </Base>
+      </Text>
+      <ul
+        className="ant-list-item-action"
+        key="actions"
+      >
+        <li
+          key="ant-list-item-action-0"
+        >
+          <div>
+            some-action-to-perform
+          </div>
+        </li>
+      </ul>
+      <div
+        key="extra"
+      >
+        some-extra-content
+      </div>
+    </li>
+  </ItemAntd>
+</ListItem>
+`;

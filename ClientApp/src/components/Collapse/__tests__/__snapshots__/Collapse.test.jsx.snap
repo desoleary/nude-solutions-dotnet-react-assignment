@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse with shallow rendering compares snapshot 1`] = `
+<CollapseAntd
+  bordered={true}
+  defaultActiveKey={
+    Array [
+      "collapse-panel-some-identifier",
+    ]
+  }
+  onChange={[Function]}
+>
+  <Panel
+    extra={
+      <div>
+        some-extra-content
+      </div>
+    }
+    header="some-text"
+    id="some-identifier"
+    key="collapse-panel-some-identifier"
+  />
+  <Panel
+    disabled={true}
+    extra={
+      <div>
+        some-footer-extra-content
+      </div>
+    }
+    header="some-footer-header"
+    id="some-footer-panel-identifier"
+  />
+</CollapseAntd>
+`;
