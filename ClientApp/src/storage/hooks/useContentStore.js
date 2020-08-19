@@ -17,7 +17,8 @@ const useContentStore = ({ initialEntries = [] }) => {
     setEntries(initialEntries);
 
     setLoading(false);
-  }, [initialEntries, setItem]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const addEntry = (entry) => {
     const addItem = (currentEntries) => {

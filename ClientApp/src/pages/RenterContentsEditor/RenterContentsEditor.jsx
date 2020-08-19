@@ -1,5 +1,6 @@
 import { arrayOf, shape, number, string, oneOf, oneOfType } from 'prop-types';
 import React from 'react';
+import { Card, Col } from 'antd';
 import { CATEGORIES } from '../../constants';
 import { AddContentForm } from './components';
 import { useContentStore } from '../../storage';
@@ -31,7 +32,11 @@ const RenterContentsEditor = (props) => {
   return (
     <>
       <Collapse data={data} expandAllByDefault footerProps={footerProps} />
-      <AddContentForm onAdd={handleAddEntry} />
+      <Card size='small'>
+        <Col span={18} offset={6}>
+          <AddContentForm onAdd={handleAddEntry} />
+        </Col>
+      </Card>
     </>
   );
 };
