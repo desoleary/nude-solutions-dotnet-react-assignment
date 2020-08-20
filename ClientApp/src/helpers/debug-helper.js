@@ -1,11 +1,21 @@
 /* eslint-disable no-console */
 
+import { isNotProd } from './env-helper';
+
 /**
  * Prints given error to console if not in production env.
  *
  * @param error
  */
 export const nonProdConsoleError = (error) => {
-  const isNotProd = true; // in a real app this would be controlled via config settings
-  if (isNotProd) console.log(error);
+  if (isNotProd()) console.error(error);
+};
+
+/**
+ * Prints given error to console if not in production env.
+ *
+ * @param msg
+ */
+export const nonProdConsoleLogger = (msg) => {
+  if (isNotProd()) console.log(msg);
 };

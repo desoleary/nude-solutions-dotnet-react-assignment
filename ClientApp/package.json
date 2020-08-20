@@ -9,6 +9,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jquery": "^3.5.1",
+    "js-cookie": "^2.2.1",
     "localforage": "^1.9.0",
     "lodash-es": "^4.17.15",
     "merge": "^1.2.1",
@@ -70,16 +71,17 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "cross-env rimraf ./build && react-scripts start",
+    "start": "yarn run increment-server-restart-version && cross-env rimraf ./build && react-scripts start",
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/",
     "eslint:format": "yarn run eslint --fix ./src/",
-    "storybook": "start-storybook -p 6006 -s public",
+    "storybook": "yarn run increment-server-restart-version && start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "prettier": "prettier -l src/**/*/*.{js,jsx,css,less} !src/**/*/__snapshots__/*",
-    "prettier:format": "yarn run prettier --write"
+    "prettier:format": "yarn run prettier --write",
+    "increment-server-restart-version": "/bin/bash ./.bin/increment-server-restart-version.bash"
   },
   "husky": {
     "hooks": {

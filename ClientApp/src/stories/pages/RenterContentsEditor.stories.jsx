@@ -1,5 +1,5 @@
 import React from 'react';
-import { contents } from '../../pages/RenterContentsEditor/seeds';
+import { contents } from '../../seeds';
 import { RenterContentsEditor } from '../../pages';
 
 const props = {

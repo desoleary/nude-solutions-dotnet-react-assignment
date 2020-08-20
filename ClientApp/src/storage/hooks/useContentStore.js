@@ -2,21 +2,31 @@ import { useEffect, useState } from 'react';
 import { chain } from 'lodash-es';
 import { arrayOf, number, oneOf, oneOfType, shape, string } from 'prop-types';
 import useLocalStorage from './useLocalStorage';
-import { CATEGORIES } from '../../constants';
-import { nonProdConsoleError } from '../../helpers';
+import {
+  CATEGORIES,
+  LOCAL_STORAGE_KEY_RENTERS_CONTENTS
+} from '../../constants';
 
-const key = 'renters_content';
+import { seedRentersContentIfServerRestarted } from '../../seeds';
 
-const useContentStore = ({ initialEntries = [] }) => {
-  const { getItem, setItem } = useLocalStorage({ fallbackValue: [] });
+const useContentStore = () => {
+  const { getItem, setItem } = useLocalStorage(
+    LOCAL_STORAGE_KEY_RENTERS_CONTENTS,
+    {
+      fallbackValue: []
+    }
+  );
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setItem({ name: key, value: initialEntries }).catch(nonProdConsoleError);
-    setEntries(initialEntries);
+    seedRentersContentIfServerRestarted().then(() => {
+      getItem().then((nextEntries) => {
+        setEntries(nextEntries);
+        setLoading(false);
+      });
+    });
 
-    setLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -31,10 +41,10 @@ const useContentStore = ({ initialEntries = [] }) => {
       const nextEntries = currentEntries.concat({ ...entry, id: nextId });
       setEntries(nextEntries);
 
-      return setItem({ name: key, value: nextEntries });
+      return setItem(nextEntries);
     };
 
-    getItem(key).then(addItem);
+    getItem().then(addItem);
   };
 
   const removeEntry = (id) => {
@@ -48,10 +58,10 @@ const useContentStore = ({ initialEntries = [] }) => {
 
       setEntries(nextEntries);
 
-      return setItem({ name: key, value: nextEntries });
+      return setItem(nextEntries);
     };
 
-    getItem(key).then(removeItem);
+    getItem().then(removeItem);
   };
 
   return { entries, loading, addEntry, removeEntry };
