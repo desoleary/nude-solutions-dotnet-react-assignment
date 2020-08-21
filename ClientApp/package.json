@@ -59,6 +59,7 @@
     "global": "^4.4.0",
     "husky": "^4.2.5",
     "jest-extended": "^0.11.5",
+    "jest-localstorage-mock": "^2.4.3",
     "jest-prop-type-error": "^1.1.0",
     "jsdom": "^16.4.0",
     "less-loader": "^6.2.0",
@@ -73,7 +74,7 @@
   "scripts": {
     "start": "yarn run increment-server-restart-version && cross-env rimraf ./build && react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "test": "cross-env CI=true react-scripts test --env=jsdom --cache --color --testTimeout 5000",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/",
     "eslint:format": "yarn run eslint --fix ./src/",
@@ -81,7 +82,8 @@
     "build-storybook": "build-storybook -s public",
     "prettier": "prettier -l src/**/*/*.{js,jsx,css,less} !src/**/*/__snapshots__/*",
     "prettier:format": "yarn run prettier --write",
-    "increment-server-restart-version": "/bin/bash ./.bin/increment-server-restart-version.bash"
+    "increment-server-restart-version": "/bin/bash ./.bin/increment-server-restart-version.bash",
+    "jest": "jest --testTimeout 5000 --cache"
   },
   "husky": {
     "hooks": {
@@ -90,7 +92,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "jest --findRelatedTests"
+      "yarn run jest --findRelatedTests"
     ],
     "src/**/*.{js,jsx,ts,tsx,json,scss,md}": [
       "prettier --write",
