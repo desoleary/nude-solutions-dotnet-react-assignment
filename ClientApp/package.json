@@ -38,8 +38,11 @@
     "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
     "chai-enzyme": "^1.0.0-beta.1",
+    "concurrently": "^5.3.0",
     "cross-env": "^5.2.0",
     "css-loader": "^4.2.1",
+    "cypress": "^5.0.0",
+    "cypress-plugin-tab": "^1.0.5",
     "dirty-chai": "^2.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
@@ -83,7 +86,8 @@
     "prettier": "prettier -l src/**/*/*.{js,jsx,css,less} !src/**/*/__snapshots__/*",
     "prettier:format": "yarn run prettier --write",
     "increment-server-restart-version": "/bin/bash ./.bin/increment-server-restart-version.bash",
-    "jest": "jest --testTimeout 5000 --cache"
+    "jest": "jest --testTimeout 5000 --cache",
+    "cypress": "yarn run concurrently 'wait-on http://localhost:6006 --reverse && react-scripts start' 'cypress open'"
   },
   "husky": {
     "hooks": {
@@ -91,7 +95,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.test.{js,jsx}": [
       "yarn run jest --findRelatedTests"
     ],
     "src/**/*.{js,jsx,ts,tsx,json,scss,md}": [

@@ -20,3 +20,8 @@ $ ASPNETCORE_URLS="https://localhost:5001" ASPNETCORE_ENVIRONMENT="Development" 
 
 `$ yarn run storybook`
 
+#### Cypress
+
+`$ yarn run cypress`
+
+<img width="1440" alt="Screen Shot 2020-08-21 at 7 56 15 PM" src="https://user-images.githubusercontent.com/2164481/90946307-c4174a80-e3e8-11ea-8895-723b08b88791.png">

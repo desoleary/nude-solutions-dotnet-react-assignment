@@ -9,7 +9,11 @@ const Form = (props) => {
   const { label } = submitBtnProps;
 
   return (
-    <FormAntd layout='inline' initialValues={formData} onFinish={onSubmit}>
+    <FormAntd
+      layout='inline'
+      initialValues={formData}
+      onFinish={onSubmit}
+      data-cy-form>
       {fields.map((field) => (
         <Field {...field} key={field.name} />
       ))}

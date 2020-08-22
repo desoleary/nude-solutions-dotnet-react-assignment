@@ -12,7 +12,12 @@ const Panel = (props) => {
   const listKey = `panel-list-${id}`;
 
   return (
-    <PanelAntd {...rest} header={header} extra={extra} key={key}>
+    <PanelAntd
+      {...rest}
+      header={header}
+      extra={extra}
+      key={key}
+      className={`cy-data-panel-${id}`}>
       <List dataSource={items} key={listKey} />
     </PanelAntd>
   );

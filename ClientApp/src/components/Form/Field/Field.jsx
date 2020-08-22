@@ -21,7 +21,12 @@ const Field = (props) => {
 
   return (
     <FormItem label='' name={name} rules={rules}>
-      <Widget {...inputProps} placeholder={label} style={{ minWidth: 120 }} />
+      <Widget
+        {...inputProps}
+        name={name}
+        placeholder={label}
+        style={{ minWidth: 120 }}
+      />
     </FormItem>
   );
 };

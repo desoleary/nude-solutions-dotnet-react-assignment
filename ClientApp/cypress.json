@@ -1,0 +1,15 @@
+{
+  "baseUrl": "https://localhost:5001/",
+  "viewportWidth": 1280,
+  "viewportHeight": 720,
+  "chromeWebSecurity": false,
+  "videoUploadOnPasses": false,
+  "video": false,
+  "testFiles": "**/*.spec.*",
+  "ignoreTestFiles": [
+    "**/examples/**/*.*"
+  ],
+  "env": {
+    "CYPRESS_BUILD": true
+  }
+}
